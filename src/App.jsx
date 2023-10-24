@@ -6,56 +6,51 @@ import Navbar from './components/navbar/Navbar'
 import Menu from './components/menu/Menu'
 import Footer from './components/footer/Footer'
 import "./styles/global.scss"
-
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Outlet
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const App = () => {
 
-  const Layout = () => {
+    const Layout = () => {
+        return (
+            <div className="main">
+                <Navbar />
+                <div className="container">
+                    <div className="menuContainer">
+                        <Menu />
+                    </div>
+                    <div className="menuContainer">
+                        <Outlet />
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        )
+    }
+
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <Layout />,
+            children: [
+                {
+                    path: "/",
+                    element: <Home />
+                },
+                {
+                    path: "/users",
+                    element: <Users />
+                },
+                {
+                    path: "/products",
+                    element: <Products />
+                },
+            ]
+        },
+    ]);
+
     return (
-      <div className="main">
-        <Navbar />
-        <div className="container">
-          <div className="menuContainer">
-            <Menu />
-          </div>
-          <div className="menuContainer">
-            <Outlet />
-          </div>
-        </div>
-        <Footer/>
-      </div>
+        <RouterProvider router={router} />
     )
-  }
-
-  const router = createBrowserRouter([
-    {
-      path:"/",
-      element: <Layout/>,
-      children:[
-        {
-          path:"/",
-          element: <Home/>
-        },
-        {
-          path:"/users",
-          element: <Users/>
-        },
-        {
-          path:"/products",
-          element: <Products/>
-        },
-      ]
-    },
-  ]);
-
-  return (
-    <RouterProvider router={router} />
-  )
 }
 
 export default App
