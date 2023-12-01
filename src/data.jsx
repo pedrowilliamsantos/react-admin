@@ -113,7 +113,7 @@ export const menu = [
                 url: "/",
                 icon: "log.svg",
             },
-        ],
+        ]
     },
 ];
 
