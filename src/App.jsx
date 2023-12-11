@@ -38,7 +38,7 @@ const App = () => {
                 },
                 {
                     path: "/users",
-                    element: <Users />
+                    element: <Users/>
                 },
                 {
                     path: "/products",

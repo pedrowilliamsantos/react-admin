@@ -1,9 +1,9 @@
 import "./dataTable.scss"
 import { DataGrid, GridToolbar } from "@mui/x-data-grid"
-import { userRows, userColumns } from "../../data";
+import { userColumns } from "../../data";
 import { Link } from "react-router-dom";
 
-const DataTable = () => {
+const DataTable = (props) => {
 
     const actionColumn = {
         field: "action",
@@ -26,8 +26,8 @@ const DataTable = () => {
     return (
         <div className="dataTable">
             <DataGrid actionColumn className="dataGrid"
-                rows={userRows} //puxando os dados do banco 'data.jsx'
-                columns={[...userColumns, actionColumn]}
+                rows={props.rows} 
+                columns={[...props.columns, actionColumn]}
                 initialState={{
                     pagination: {
                         paginationModel: {

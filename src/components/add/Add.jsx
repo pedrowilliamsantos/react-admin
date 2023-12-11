@@ -1,5 +1,4 @@
 import "./add.scss"
-import { userColumns } from "../../data"
 
 const Add = (props) => {
     
@@ -14,11 +13,11 @@ const Add = (props) => {
                 <span className="close" onClick={()=>props.setOpen(false)}>X</span>
                 <h1>Add new {props.slug}</h1>
                 <form onSubmit={handleSubmit}>
-                    {userColumns.filter((item)=>item.field !== "id" && item.field !== "img")
-                    .map((userColumns)=>(
+                    {props.columns.filter((item)=>item.field !== "id" && item.field !== "img")
+                    .map((column)=>(
                         <div className="item">
-                            <label>{userColumns.headerName}</label>
-                            <input type={userColumns.type} placeholder={userColumns.field} />
+                            <label>{column.headerName}</label>
+                            <input type={column.type} placeholder={column.field} />
                         </div>
                     ))}
                     <button>send</button>
