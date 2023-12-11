@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 export const menu = [
     {
         id: 1,
@@ -8,7 +6,7 @@ export const menu = [
             {
                 id: 1,
                 title: "Homepage",
-                url: "/",
+                url: "/home",
                 icon: "home.svg",
             },
             {
@@ -38,13 +36,14 @@ export const menu = [
             {
                 id: 3,
                 title: "Orders",
-                url: "/orders",
+                url: "/",
                 icon: "order.svg",
+                color:""
             },
             {
                 id: 4,
                 title: "Posts",
-                url: "/posts",
+                url: "/",
                 icon: "post2.svg",
             },
         ],
